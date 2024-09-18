@@ -1,0 +1,167 @@
+<style>
+    a{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+a:hover{
+  color: rgb(91, 185, 167);
+}
+.grid-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%; 
+}
+.grid-right{
+  display: grid;
+  grid-template-rows: (6, 1fr);
+  gap: 10px; 
+  width: 100%; 
+}
+.grid-right a {
+  display: flex; 
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+.grid-right a:hover{
+  color: rgb(91, 185, 167);
+}
+.grid-right img {
+  margin-right: 10px; 
+}
+
+    * {
+  box-sizing: border-box; 
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h1{
+  color: rgb(4, 0, 255);
+  text-align: center;
+  display: inline;
+}
+.menu-dau{  
+  width: 100%;
+  height: 40px;
+  background-color: rgb(107, 205, 212);
+  display: flex; 
+  margin-top: 10px;
+  justify-content:space-around;
+}
+.menu-dau a{
+  text-decoration: none;
+  padding-left: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.menu-dau a:hover{
+  background-color: rgb(70, 231, 194);
+}
+.grid-container{
+  display: grid;
+  grid-template-columns: 200px 600px auto 180px;
+  padding: 10px;
+}
+.zoom-image {
+  transition: transform 0.3s ease; 
+  cursor: pointer; 
+  max-width: 100%;
+}
+.zoom-image:hover {
+  transform: scale(1.03); 
+}
+
+  </style>
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo mới</title>
+    <link rel="stylesheet" href="bm.css">
+    
+</head>
+<body>
+ <div class="grid-container">
+        <div class="menu-dau" style="margin-top: 46px;"></div>
+        <div>
+            <h1>BÁO MỚI</h1>
+            <div class="menu-dau">
+                <a href="#">NÓNG</a>
+                <a href="https://baomoi.com/tin-moi.epi">MỚI</a>
+                <a href="https://baomoi.com/tin-video.epi">VIDEO</a>
+                <a href="https://baomoi.com/chu-de.epi">CHỦ ĐỀ</a>
+                <a href="https://baomoi.com/mua-lu-mien-bac-top1352.epi"># Mưa lũ miền Bắc</a>
+                <a href="https://baomoi.com/nang-luong-tich-cuc-top338.epi"># Năng lượng tích cực</a>
+                <a href="https://baomoi.com/kham-pha-viet-nam-top335.epi"># Khám phá</a>
+            </div> 
+            <div style="margin-top: 10px;">
+                <img class="zoom-image" src="https://photo-baomoi.bmcdn.me/w700_r16x9/2024_09_18_15_50216817/632381943cdbd5858cca.jpg.webp" style="width: 600px">
+                <a style="font-size: 30px;" href="https://baomoi.com/ngay-lam-viec-dau-tien-hoi-nghi-trung-uong-10-khoa-xiii-c50214610.epi">Thủy thủ câu cá bị ngã xuống biển,mới biết không biết bơi</a>
+                <div class="grid-content">
+                        <a href="https://baomoi.com/can-canh-nguoi-dan-mien-trung-chay-dua-chong-bao-so-4-c50215222.epi">
+                            <img src="https://photo-baomoi.bmcdn.me/w100_r1x1/2024_09_18_16_50217347/349da51f1850f10ea841.jpg.webp" class="zoom-image"></a>
+                        <a href="https://baomoi.com/trong-tai-tai-tieng-nhat-ngoai-hang-anh-bi-dinh-chi-c50215006.epi">
+                            <img src="https://photo-baomoi.bmcdn.me/w250_r3x2/2024_09_18_119_50215006/3f503e8583ca6a9433db.jpg.webp" class="zoom-image"></a>
+                        <a href="https://baomoi.com/ap-thap-nhiet-doi-cach-da-nang-khoang-430km-c50214907.epi">
+                            <img src="https://photo-baomoi.bmcdn.me/w100_r1x1/2024_09_18_106_50217371/482165a2d8ed31b368fc.jpg.webp" class="zoom-image"></a>
+                        <a style="font-size: 20px;">Cận cảnh người dân miền Trung chạy đua chống bão số 4</a>
+                        <a style="font-size: 20px;">Trọng tài tai tiếng nhất Ngoại Hạng Anh bị đình chỉ</a>
+                        <a style="font-size: 20px;">Áp suất nhiệt đới cách Đà Nẵng khoảng 430km</a>
+                </div>
+            </div>  
+        </div>
+        <div>
+            <div class="menu-dau" style="margin-top: 46px;">
+                <a href="https://baomoi.com/kham-pha-viet-nam-top335.epi">Việt Nam</a>
+                <a href="https://baomoi.com/kham-pha-the-gioi-top363.epi"># Khám phá Thế Giới</a>
+            </div>
+            <div style="margin-top: 10px ; margin-left: 10px;">
+                <div class="grid-right" style="font-size: 20px;">
+                    <a href="https://baomoi.com/tong-bi-thu-chu-tich-nuoc-to-lam-tiep-dai-su-cac-nuoc-den-trinh-quoc-thu-c50198919.epi">
+                        <img src="https://photo-baomoi.bmcdn.me/w100_r1x1/2024_09_17_293_50198919/d1319e8822c7cb9992d6.jpg.webp" class="zoom-image">Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp Đại sứ các nước đến trình Quốc thư</a>
+                    
+                    <a href="https://baomoi.com/may-nhan-tin-no-hang-loat-hang-ngan-thanh-vien-hezbollah-bi-thuong-nang-c50206965.epi">
+                        <img src="https://photo-baomoi.bmcdn.me/w100_r1x1/2024_09_18_15_50206965/e07ac7097b469218cb57.jpg.webp" class="zoom-image">Máy nhắn tin nổ hàng loạt, hàng ngàn thành viên Hezbollah bị thương nặng</a>
+                    
+                    <a href="https://baomoi.com/gioi-tre-chen-nhau-chat-cung-de-don-trung-thu-pho-co-ha-noi-c50206957.epi">
+                        <img src="https://photo-baomoi.bmcdn.me/w100_r1x1/2024_09_17_14_50206957/cc531621aa6e43301a7f.jpg.webp" class="zoom-image">Giới trẻ chen nhau 'chật cứng' để đón Trung thu phố cổ Hà Nội</a>
+                    
+                    <a href="https://baomoi.com/chuyen-gia-du-bao-dien-bien-ap-thap-nhiet-doi-bao-so-4-khuyen-cao-cac-bien-phap-ung-pho-c50206903.epi">
+                        <img src="https://photo-baomoi.bmcdn.me/w100_r1x1/2024_09_17_146_50206903/fbf880893cc6d5988cd7.jpg.webp">Chuyên gia dự báo diễn biến ÁP THẤP NHIỆT ĐỚI - BÃO SỐ 4; khuyến cáo các biện pháp ứng phó</a>
+                    
+                    <a href="https://baomoi.com/thong-tin-dang-chu-y-tren-bao-in-nguoi-lao-dong-ngay-18-9-c50206922.epi">
+                        <img src="https://photo-baomoi.bmcdn.me/w100_r1x1/2024_09_18_15_50206922/454c603edc71352f6c60.jpg.webp" class="zoom-image">Thông tin đáng chú ý trên báo in Người Lao Động ngày 18-9</a>
+                    
+                    <a href="hhttps://vietnamnet.vn/phuong-le-nsut-vu-luan-gop-hang-ty-dong-san-se-mat-mat-voi-ba-con-lao-cai-2323242.html">
+                        <img src="https://photo-baomoi.bmcdn.me/w100_r1x1/2024_09_17_23_50206932/994ed93c65738c2dd562.jpg.webp" class="zoom-image">NSƯT Vũ Luân, Phương Lê mang xe tải chở 10 tấn hàng đến Lào Cai</a>
+                </div>
+            </div>
+        </div>
+        <div class="menu-dau" style="margin-top: 46px;"></div>
+    </div>
+
+
+
+
+<script>
+    document.addEventListener("keydown", function (event) {
+    if (event.key === "F12") {
+        event.preventDefault();
+    }
+  });
+  
+  document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+  });
+  
+  
+  </script>
+</body></html>
