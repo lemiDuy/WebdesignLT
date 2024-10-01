@@ -12,14 +12,17 @@
             --fontcolor1:#141C3A ;
         }
         body {
+            margin: 0 0;
             background-color: var(--backcolor);
             font-family: Verdana;
             color: var(--fontcolor1);
             transition: background-color 0.3s ease;
         }
         .avatar {
+            margin-top: 3%;
+            margin-left: 30%;
             border-radius: 50%;
-            width: 190px;
+            width: 170px;
             height: auto;
         }
         .centertext {
@@ -46,6 +49,8 @@
             margin-right: 10%;
             margin-top: 10%;
             margin-bottom: 10%;
+            
+            
         }
         .ts {
             color: #141C3A;
@@ -151,11 +156,11 @@
 </head>
 <body >
     <div class="centertext d1" >
-        <h1 style="font-size: 35px;">Designer, Frontend Developer & Student</h1>
+        <h1 style="font-size: 35px; ">Designer, Frontend Developer & Student</h1>
         <p style="font-size: 19px;">Let's be creative with me</p> 
-        <img class="avatar" src="./hiblood.png" alt="" style="margin-top: 50px;">  
+        <img class="avatar" style="margin-right: 31%;margin-top: 0;margin-bottom: 2%;" src="./Hi!.png" alt="" >  
         <!--./imgb3/hi.png -->
-        <button class="button" id="doimode" style="margin-left: -1.5%; font-size: 17px;">Say Hello</button>
+        <button class="button" id="doimode" style="font-size: 17px; margin-right: 45%;">Say Hello</button>
     </div>
     
     <div class="centertext">
@@ -237,7 +242,13 @@
     if (currentColor === 'white') {
         root.style.setProperty('--backcolor', '#18191A');
         root.style.setProperty('--fontcolor1', 'white');
-    } else {
+    }
+    else if (currentColor === '#18191A') {
+        root.style.setProperty('--backcolor', '#FA9560');
+        root.style.setProperty('--fontcolor1', '#1D1856');
+    }
+    
+    else {
         root.style.setProperty('--backcolor', 'white');
         root.style.setProperty('--fontcolor1', '#141C3A');
     }
