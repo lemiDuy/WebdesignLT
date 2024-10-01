@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,15 @@
     <link rel="icon" href="./imgb3/logott.png" type="image/png">
     <title>DuyInDaLap | Design,Frond-end Dev,Student</title>
     <style>
+        :root {
+            --backcolor: white;
+            --fontcolor1:#141C3A ;
+        }
         body {
+            background-color: var(--backcolor);
             font-family: Verdana;
-            color: #141C3A;
+            color: var(--fontcolor1);
+            transition: background-color 0.3s ease;
         }
         .avatar {
             border-radius: 50%;
@@ -26,7 +33,9 @@
             border-radius: 20px; 
             width: 10%; 
             height: auto; 
-            padding: 5px;
+            padding: 7px;
+            background-color: transparent;
+            cursor: pointer;
         }
         .button:hover {
             background-color: #8C52FF;
@@ -39,6 +48,7 @@
             margin-bottom: 10%;
         }
         .ts {
+            color: #141C3A;
             text-align: center;
             background-color: #ffffff;
             border-radius: 30px;
@@ -139,12 +149,13 @@
         }
     </style>
 </head>
-<body>
-    <div class="centertext d1">
+<body >
+    <div class="centertext d1" >
         <h1 style="font-size: 35px;">Designer, Frontend Developer & Student</h1>
         <p style="font-size: 19px;">Let's be creative with me</p> 
-        <img class="avatar" src="./hiblood.png" alt="" style="margin-top: 50px;">  <! -- ./imgb3/hi.png -->
-        <p id="Hello" class="button">Say Hello</p>
+        <img class="avatar" src="./hiblood.png" alt="" style="margin-top: 50px;">  
+        <!--./imgb3/hi.png -->
+        <button class="button" id="doimode" style="margin-left: -1.5%; font-size: 17px;">Say Hello</button>
     </div>
     
     <div class="centertext">
@@ -156,7 +167,7 @@
             <p style="margin-bottom: 30px; font-size: 27px; margin-top: 110px;"><b>Hi, I'm Duy. Nice to meet you</b></p>
             <h3 style="font-weight: 510; line-height: 1.5;">Do you like design? Or programming? I like both. I love works that require creativity and meticulousness, they arouse infinite curiosity in me. As an IT student, I was on the path to making my dreams come true. Do you want to know what it is? Come with me.</h3>
         </div>
-        <div style="margin-left: 10%;">
+        <div style="margin-left: 10%; ">
             <div class="ts">
                 <img src="./imgb3/design.png" alt="" class="icon">
                 <p style="font-size: 17px; font-weight: 700; margin-bottom: 20px;">DESIGNER</p>
@@ -174,7 +185,7 @@
             <div class="ts">
                 <img src="./imgb3/student.png" alt="" class="icon">
                 <p style="font-size: 17px; font-weight: 700; margin-bottom: 20px;">IT STUDENT</p>
-                <p style="margin-left: 70px; margin-right: 70px;">Most of the time I am a student majoring information technology <br> at <a href="https://hnmu.edu.vn/" id="school">Hanoi Metropolitant University</a>. It is quite a fun experience</p>
+                <p style="margin-left: 70px; margin-right: 70px; ">Most of the time I am a student majoring information technology <br> at <a href="https://hnmu.edu.vn/" id="school">Hanoi Metropolitant University</a>. It is quite a fun experience</p>
                 <p class="hili">Specialized Class:</p>
                 <p style="font-weight: 500;">Information technology D2023A</p>
             </div>
@@ -191,8 +202,8 @@
         <img src="./imgb3/pj4.png" alt="">
     </div>
     <div class="centertext" style="border-top: 1px solid #e0e0e2; margin-top: 100px; margin-bottom: 130px;">
-        <p style="margin-top: 130px; font-size: 23px; font-weight: 700; margin-bottom: 20px; color: #141C3A;">Interested in collaborating with me? </p>
-        <p style="margin-top: 20px; color: #141C3A;">I’m always open to discussing product design work or partnership opportunities</p>
+        <p style="margin-top: 130px; font-size: 23px; font-weight: 700; margin-bottom: 20px; color: var(--fontcolor1);">Interested in collaborating with me? </p>
+        <p style="margin-top: 20px; color: var(--fontcolor1);">I’m always open to discussing product design work or partnership opportunities</p>
         <p class="button2" style="margin-top: 50px;">Start a conversation</p>
     </div>
     
@@ -218,6 +229,22 @@
         </div>
     </div>
     
-   
+    <script>
+    document.getElementById("doimode").addEventListener("click", function() {
+    const root = document.documentElement;
+    const currentColor = getComputedStyle(root).getPropertyValue('--backcolor').trim();
+
+    if (currentColor === 'white') {
+        root.style.setProperty('--backcolor', '#18191A');
+        root.style.setProperty('--fontcolor1', 'white');
+    } else {
+        root.style.setProperty('--backcolor', 'white');
+        root.style.setProperty('--fontcolor1', '#141C3A');
+    }
+});
+
+
+    </script>
+    
 </body>
 </html>
