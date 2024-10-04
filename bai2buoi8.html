@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function findMaxMin() {
+
+    var input = prompt("Nhập vào một dãy số, cách nhau bởi dấu cách:");
+    
+    var numbers = input.split(" ").map(Number);
+
+
+    var max = Math.max(...numbers);
+    var min = Math.min(...numbers);
+
+alert("Max = " +max+" Min = "+ min)
+}
+
+// Gọi hàm
+findMaxMin();
+
+</script>
+</html>
