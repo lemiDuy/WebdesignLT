@@ -43,7 +43,7 @@
       border-radius: 5px;
       padding: 5px 10px;
       margin: 35px 0;
-      transition: background-color 0.4s ease;
+
   
     }
     .search-container input[type="text"] {
@@ -104,6 +104,7 @@
               z-index: 1;
               border-radius: 4px;
               overflow: hidden;
+              transition: 1s ease-in;
           }
   
           .dropdown-content a {
@@ -234,6 +235,10 @@
   .belowbar .icon {
     display: none;
   }
+  .mbmenu-container {
+
+    z-index: 10;
+  }
   .mbmenu {
     display: none;
   }
@@ -264,6 +269,7 @@
   .mbmenu {
         display: block;
         list-style-type: none;
+        
        
         
 
@@ -271,16 +277,24 @@
     }
     .mbmenu ul li a{
         text-decoration: none;
+       
     }
     .mbmenutop {
+  
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: #ffffff;
         padding: 5px 20px;
+        position: relative;
+       
         
 
         
+    }
+    .mbmenutop li {
+      cursor: pointer;
+      
     }
     .mbmenutop .logo3 img{
         width: 150px;
@@ -296,6 +310,7 @@
         color: rgb(44, 44, 44);
         font-size: 12px;
         font-weight: 700;
+      
         
     }
  
@@ -304,16 +319,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: height 10s ease; 
 
     }
-     #icodrop{
+     .icodrop{
 
         background-color: #ffffff00;
         color: #000000;
+        border-left: 0.5px solid rgb(182, 182, 182);
+        background-color: #ffffff00;
+        padding: 5px 20px;
+        margin-right: 10px;
     }
-
+    .icodrop:hover {
+      background-color: #cccccc;
+    }
     
     .wepadd {
+      font-size: 14px;
         flex-grow: 1;
         padding-right: 70%;
         padding-top: 15px;
@@ -330,15 +353,15 @@
         color: #ffffff;
     }
     .wapadd {
-        border-left: 0.5px solid rgb(182, 182, 182);
-        background-color: #ffffff;
-        padding: 5px 20px;
-        margin-right: 10px;
+        
     }
     .wapadd:hover {
         background-color: #cccccc;
     }
     .mbmenubelow {
+      width: 100%;
+      position: absolute;
+    
         display: none;
         border-top: 1px solid #cecece;
         border-bottom: 3px solid #cecece;
@@ -346,8 +369,38 @@
     .hide-button {
         display: none;
     }
+    .mbdrop {
  
+      list-style-type: none;
+
+
+      border-left: 3px solid #A80000;
+    }
+    .mbdrop li {
+      flex-grow: 1;
+        padding-right: 70%;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        padding-left: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        color: black;
+        margin-right: 5px;
+        border-top: 0.05px solid #cecece;
+    }
+    .mbdrop li a{
+      background-color: rgb(255, 255, 255);
+        color: rgb(78, 78, 78);
+        font-size: 15px;
+        font-weight: 700;
+        margin-left: 25px;
+        padding-right: 100%;
+        padding-top: 100%;
+        padding-bottom: 100%;
+  
+    }
   }
+
   </style>
   <!DOCTYPE html>
   <html lang="en">
@@ -392,36 +445,35 @@
         
           <ul class="below-content">
             <li ><a href="" class="active">TRANG CHỦ </a></li>
-            <li class="dropdown"><a href="#kk">TIN TỨC<i class="fas fa-chevron-down" id="drop"></i></a>
+            <li class="dropdown"><a href="#kk">KHÁM PHÁ<i class="fas fa-chevron-down" id="drop"></i></a>
               <ul class="belowbar-dropdown">
-                <li><a href="">Sự kiện nổi bật</a></li>
-                <li><a href="">Thông tin pháp luật</a></li>
-                <li><a href="">Câu chuyện</a></li>
+                <li><a href="">Quyền trẻ em</a></li>
+                <li><a href="">Bảo vệ trẻ em</a></li>
+                <li><a href="">Bạo hành trẻ em</a></li>
                
               </ul>
             </li>
                     
-            <li class="dropdown"><a href="#ccc">HOẠT ĐỘNG<i class="fas fa-chevron-down" id="drop"></i></a>
+            <li class="dropdown"><a href="#ccc">SỰ KIỆN<i class="fas fa-chevron-down" id="drop"></i></a>
               <ul class="belowbar-dropdown">
-                <li><a href="">Giáo dục trẻ em</a></li>
-                <li><a href="">Bảo vệ trẻ em</a></li>
-                <li><a href="">Sức khỏe - Dinh dưỡng</a></li>
-                <li><a href="">Tài liệu</a></li>
+                <li><a href="">Điểm chính</a></li>
+                <li><a href="">Câu chuyện</a></li>
+                <li><a href="">Thông tin pháp luật</a></li>
+                <li><a href="">Báo cáo</a></li>
               </ul>
             </li>
                 
-            <li class="dropdown"><a href="#bđ">TƯ VẤN<i class="fas fa-chevron-down"  id="drop"></i></a>
+            <li class="dropdown"><a href="#bđ">HOẠT ĐỘNG<i class="fas fa-chevron-down"  id="drop"></i></a>
               <ul class="belowbar-dropdown">
-                <li><a href="">Đặt lịch hẹn</a></li>
-                <li><a href="">Lịch sử tư vấn</a></li>
+                <li><a href="">Đặt lịch tư vấn</a></li>
+                <li><a href="">Quyên góp - Trao tặng</a></li>
               </ul>
             </li>
                     
-            <li class="dropdown"><a href="#ttt">CHÚNG TÔI <i class="fas fa-chevron-down"  id="drop"></i></a>
+            <li class="dropdown"><a href="#ttt">VỀ CHÚNG TÔI <i class="fas fa-chevron-down"  id="drop"></i></a>
               <ul class="belowbar-dropdown">
-                <li><a href="">Sứ mạng - Phương hướng</a></li>
-                <li><a href="">Đội ngũ thành viên</a></li>
-                <li><a href="">Kế hoạch </a></li>
+                <li><a href="">Sứ mạng - Đội ngũ - Định hướng</a></li>
+                <li><a href="">Báo cáo thống kê</a></li>
             
               </ul>
               <li ><a href="" >CỘNG ĐỒNG</a></li>
@@ -436,8 +488,8 @@
     <div class="mbmenu" id="mbmenu">
       <div class="mbmenutop" >
           <a class="logo3" href=""><img src="./img/logo.png" alt=""></a>
-          <li class="hide-button" onclick=hidemenu()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
-          <li class="show-button" onclick=showmenu()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+          <li class="hide-button" onclick=hidemenu()><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></li>
+          <li class="show-button" onclick=showmenu()><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></li>
 
       </div>
       
@@ -454,26 +506,23 @@
                   
               <li class="mbcontent">
                   <div class="mbstatic">
-                      <a class="wepadd" href="">TIN TỨC</a>
-                      <a class="wapadd" href="">
-                          <div id="icodrop"><i class="fa fa-caret-down" ></i></div>
-                      </a>
+                      <a class="wepadd" href="">KHÁM PHÁ</a>
+                          <div class="icodrop"><i class="fa fa-caret-down" ></i></div>
                   </div>
 
-                  <ul class="mbdrop">
-                      <li><a href="">Điểm chính</a></li>
-                      <li><a href="">Câu chuyện</a></li>
-                      <li><a href="">Thông tin cập nhật</a></li>
-                      <li><a href="">Báo cáo</a></li>
+                  <ul class="mbdrop" >
+                      <li><a href="">Quyền trẻ em</a></li>
+                      <li><a href="">Bảo vệ trẻ em</a></li>
+                      <li><a href="">Bạo hành trẻ em</a></li>
                   </ul>
+                  
               </li>
 
           <li class="mbcontent">
               <div class="mbstatic">
-                  <a class="wepadd" href="">HOẠT ĐỘNG</a>
-                  <a class="wapadd" href="">
-                      <div id="icodrop"><i class="fa fa-caret-down" ></i></div>
-                  </a>
+                  <a class="wepadd" href="">SỰ KIỆN</a>
+                  <div class="icodrop"><i class="fa fa-caret-down" ></i></div>
+
               </div>
               <ul class="mbdrop">
                   <li><a href="">Điểm chính</a></li>
@@ -482,33 +531,27 @@
                   <li><a href="">Báo cáo</a></li>
               </ul></li>
               
-          <li class="mbcontent">
-              <div class="mbstatic">
-                  <a class="wepadd" href="">TƯ VẤN </a>
-              <a class="wapadd"  href="">
-                  <div id="icodrop"><i class="fa fa-caret-down" ></i></div>
-                  </a>
-                
-              
-              <ul class="mbdrop">
-                  <li><a href="">Đặt lịch hẹn</a></li>
-                  <li><a href="">Lịch sử tư vấn</a></li>
-                  <li><a href="">Tài liệu hỗ trợ</a></li>
-                  <li><a href="">Nụ cười cho em</a></li>
-              </ul></li>
+              <li class="mbcontent">
+                <div class="mbstatic">
+                    <a class="wepadd" href="">HOẠT ĐỘNG</a>
+                    <div class="icodrop"><i class="fa fa-caret-down" ></i></div>
+  
+                </div>
+                <ul class="mbdrop">
+                    <li><a href="">Đặt lịch tư vấn</a></li>
+                    <li><a href="">Quyên góp - Trao tặng</a></li>
+                </ul></li>
               
           <li class="mbcontent">
               <div class="mbstatic">
-                  <a class="wepadd" href="">CHÚNG TÔI</a>
-                  <a class="wapadd" href="">
-                      <div id="icodrop"><i class="fa fa-caret-down" ></i> </div>
-                      </a>
+                  <a class="wepadd" href="">VỀ CHÚNG TÔI</a>
+                  <div class="icodrop"><i class="fa fa-caret-down" ></i></div>
+
               </div>
               
-              <ul class="mbdrop">
-                  <li><a href="">Ban quản trị</a></li>
-                  <li><a href="">Sứ mệnh - Nhiệm vụ</a></li>
-                  <li><a href="">Kế hoạch</a></li>
+              <ul class="mbdrop" >
+                  <li><a href="">Sứ mạng - Đội ngũ - Định hướng</a></li>
+                  <li><a href="">Báo cáo thống kê</a></li>
               </ul>
           </li>
               
@@ -522,7 +565,7 @@
 </div>
 
 
-  <div style="height: 5000px; background-color: blueviolet;"></div>
+  <div style="height: 5000px; background-color: blueviolet; width: 100%;"><img style="width: 100%;" src="./img/images.jpg" alt=""></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
   
   
@@ -611,6 +654,23 @@
       hbg.style.display = 'block'
     }
      
+   // Lấy tất cả các phần tử có class 'icodrop' và 'mbdrop'
+const icodrops = document.querySelectorAll('.icodrop');
+const mbdrops = document.querySelectorAll('.mbdrop');
+
+// Lặp qua từng mục menu để thêm sự kiện click
+icodrops.forEach((icodrop, index) => {
+    icodrop.addEventListener('click', function() {
+        const mbdrop = mbdrops[index]; // Lấy phần tử mbdrop tương ứng
+        if (mbdrop.style.display === "none" || mbdrop.style.display === "") {
+            mbdrop.style.display = "block"; // Hiện menu tương ứng
+        } else {
+            mbdrop.style.display = "none"; // Ẩn menu tương ứng nếu đang hiện
+        }
+    });
+});
+
+
     </script>
   </body>
   </html>
