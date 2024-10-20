@@ -1,0 +1,68 @@
+<style>
+    * {
+        font-family: sans-serif;
+        
+    }
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .date {
+        width: 50px;
+    }
+    #diff {
+        height: 50px;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 class="row">FORM ĐĂNG KÝ</h1>
+        <div class="row"><p>Họ</p><input id="ho" type="text"></div>
+        <p class="row" id="message" style="color:red;"></p>
+        <div class="row"><p>Tên</p> <input id="ten" type="text"></div>
+        <p class="row" id="message1" style="color:red;"></p>
+        <div class="row"><p>Ngày sinh: Ngày</p><input class="date" type="text">Tháng<input class="date" type="text"> Năm <input class="date" type="text"></div>
+        <div class="row"><p>Giới tính</p><input type="checkbox">Nam</i><input type="checkbox">Nữ</i></div>
+        <div class="row"><p>Số điện thoại</p><input id="sdt" type="text"></div>
+        <p class="row" id="message3" style="color:red;"></p>
+        <div class="row"><p>Sở thích: </p><input type="checkbox">Đọc sách</i><input type="checkbox">Xem phim</i> <input type="checkbox">Nghe nhạc <input type="checkbox">Đá bóng</div>
+        <div class="row"><p>Khác</p><input id="diff" type="text"></div>
+        <div class="row"><button type="button" onclick="checkInput()">Submit</button><button type="button" onclick="reset()">Reset</button></div>
+    
+    </div>
+
+    <script>
+        function checkInput() {
+          // Lấy giá trị từ input
+          var inputValue = document.getElementById("ho").value;
+          var inputValue1 = document.getElementById("ten").value;
+          var inputValue2 = document.getElementById("sdt").value;
+          // Kiểm tra nếu input trống
+          if (inputValue.trim() === "") {
+            document.getElementById("message").textContent = "Vui lòng nhập họ!";
+          } 
+          if (inputValue1.trim() === "") {
+            document.getElementById("message1").textContent = "Vui lòng nhập tên!";
+          } 
+          if  (isNaN(inputValue2) || inputValue2.trim() === "") {
+            document.getElementById("message3").textContent = "Vui lòng nhập số điện thoại!";
+          } 
+        }
+
+        function reset() {
+            document.getElementById("message").textContent = "";
+            document.getElementById("message1").textContent = "";
+            document.getElementById("message3").textContent = "";
+        }
+      </script>
+</body>
+</html>

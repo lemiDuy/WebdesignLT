@@ -1,0 +1,311 @@
+<style>
+    * {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+   
+}
+body {
+    background-color:#F4F6FE;
+}
+
+.dark-mode {
+            background-color: #3a3a3a;
+           
+        }
+
+        /* Thiết kế toggle switch */
+        .toggle-container {
+            margin-top: 5px;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+        }
+
+        .toggle-label {
+            position: relative;
+            width: 60px;
+            height: 34px;
+            background-color: #ccc;
+            border-radius: 34px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-label::before {
+            content: "";
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            top: 4px;
+            left: 4px;
+            transition: transform 0.3s;
+       
+        }
+        input[type="checkbox"] {
+            display: none;
+        }
+        input[type="checkbox"]:checked + .toggle-label {
+            background-color: #fdb211;
+        }
+        input[type="checkbox"]:checked + .toggle-label::before {
+            transform: translateX(26px);
+        }
+
+
+.calculator-container {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px ;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+.calculator-container:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Tăng hiệu ứng đổ bóng khi hover */
+    transition: box-shadow 0.3s ease;
+}
+.num-input {
+    width: 100px;
+    text-align: center;
+    margin: 0px 5px;
+}
+
+.calc-btn {
+    width: 50px;
+    margin-top: 10px;
+}
+
+#recent-results {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result-box {
+    width: 30%; /* Tăng chiều rộng của hộp chứa */
+}
+
+
+.result-box div {
+    background-color:#FFFFFF;
+    padding: 15px;
+    margin: 0px 5px;
+    border: 2px solid #ddd; /* Khung viền dày hơn */
+    border-radius: 7px; /* Bo tròn góc khung */
+    
+    height: 120px; /* Chiều cao cố định */
+    overflow-y: auto; /* Thanh cuộn dọc khi nội dung quá dài */
+    transition: box-shadow 0.3s ease; /* Hiệu ứng khi hover */
+
+}
+
+.result-box div:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Tăng hiệu ứng đổ bóng khi hover */
+}
+.result-box p {
+    margin: 5px 0; /* Khoảng cách giữa các phép tính */
+    font-size: 16px; /* Kích thước chữ lớn hơn */
+    transition: 0.3s;
+}
+
+.result-box p.active {
+    color:#fdb211; /* Phép tính vừa thực hiện */
+    font-weight: bold;
+}
+
+.reset-button {
+    text-align: center;
+    background-color: #fdb211;
+    color: white;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+.text-center {
+    text-align: center;}
+.reset-button:hover {
+    background-color: #dd9802;
+    cursor: pointer;
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+</head>
+<body>
+
+    <div class="toggle-container">
+        <input type="checkbox" id="toggle-switch" />
+        <label for="toggle-switch" class="toggle-label"></label>
+    </div>
+
+
+<div class="calculator-container">
+    <h2 style="color: #ffae00;" class="text-center">CÁC PHÉP TOÁN</h2>
+
+    <input class="num-input" type="number" id="addNum1" placeholder="Nhập số">+<input class="num-input" type="number" id="addNum2" placeholder="Nhập số">
+    <button class="calc-btn" onclick="performCalculation('add')">=</button>
+    <input class="num-input" type="text" id="addResult" placeholder="Kết quả" readonly>
+
+
+    <br><br>
+    <input class="num-input" type="number" id="subNum1" placeholder="Nhập số">-<input class="num-input" type="number" id="subNum2" placeholder="Nhập số">
+    <button class="calc-btn" onclick="performCalculation('sub')">=</button>
+    <input class="num-input" type="text" id="subResult" placeholder="Kết quả" readonly>
+
+    <br><br>
+    <input class="num-input" type="number" id="mulNum1" placeholder="Nhập số">*<input class="num-input" type="number" id="mulNum2" placeholder="Nhập số">
+    <button class="calc-btn" onclick="performCalculation('mul')">=</button>
+    <input class="num-input" type="text" id="mulResult" placeholder="Kết quả" readonly>
+    <br><br>
+    <input class="num-input" type="number" id="divNum1" placeholder="Nhập số">/<input class="num-input" type="number" id="divNum2" placeholder="Nhập số">
+    <button class="calc-btn" onclick="performCalculation('div')">=</button>
+    <input class="num-input" type="text" id="divResult" placeholder="Kết quả" readonly>
+</div>
+
+<h2 class="text-center" style="color:#ffae00;">LỊCH SỬ</h2>
+<div id="recent-results" class="text-center">
+    <div class="result-box">
+        <p style="color: #ffae00;"><strong>PHÉP CỘNG</strong></p>
+        <div id="addLog"> Chưa thực hiện</div>
+        
+    </div>
+    <div class="result-box">
+        <p style="color: #ffae00;"><strong>PHÉP TRỪ</strong></p>
+        <div id="subLog">Chưa thực hiện</div>
+    </div>
+    <div class="result-box">
+        <p style="color: #ffae00;"><strong>PHÉP NHÂN</strong></p>
+        <div id="mulLog">Chưa thực hiện</div>
+    </div>
+    <div class="result-box">
+        <p style="color: #ffae00;"><strong>PHÉP CHIA</strong></p>
+        <div id="divLog">Chưa thực hiện</div>
+    </div>
+</div>
+
+<!-- reset button -->
+<div class="text-center">
+    <button class="reset-button" onclick="resetResults()">Đặt lại</button>
+</div>
+</body>
+<script>
+
+const toggleSwitch = document.getElementById('toggle-switch');
+        const body = document.body;
+
+        toggleSwitch.addEventListener('change', () => {
+            if (toggleSwitch.checked) {
+                body.classList.add('dark-mode');  // Chuyển sang chế độ tối
+            } else {
+                body.classList.remove('dark-mode');  // Trở về chế độ sáng
+            }
+        });
+
+    function performCalculation(operation) {
+    let result = 0;
+    let logText = '';
+    let logId = '';
+
+    switch (operation) {
+        case 'add':
+            const addNum1 = parseFloat(document.getElementById('addNum1').value);
+            const addNum2 = parseFloat(document.getElementById('addNum2').value);
+            result = addNum1 + addNum2;
+            document.getElementById('addResult').value = result;
+            logText = `${addNum1} + ${addNum2} = ${result}`;
+            logId = 'addLog';
+            break;
+
+        case 'sub':
+            const subNum1 = parseFloat(document.getElementById('subNum1').value);
+            const subNum2 = parseFloat(document.getElementById('subNum2').value);
+            result = subNum1 - subNum2;
+            document.getElementById('subResult').value = result;
+            logText = `${subNum1} - ${subNum2} = ${result}`;
+            logId = 'subLog';
+            break;
+
+        case 'mul':
+            const mulNum1 = parseFloat(document.getElementById('mulNum1').value);
+            const mulNum2 = parseFloat(document.getElementById('mulNum2').value);
+            result = mulNum1 * mulNum2;
+            document.getElementById('mulResult').value = result;
+            logText = `${mulNum1} * ${mulNum2} = ${result}`;
+            logId = 'mulLog';
+            break;
+
+        case 'div':
+            const divNum1 = parseFloat(document.getElementById('divNum1').value);
+            const divNum2 = parseFloat(document.getElementById('divNum2').value);
+            if (divNum2 !== 0) {
+                result = divNum1 / divNum2;
+            } else {
+                result = 'undefined'; 
+            }
+            document.getElementById('divResult').value = result;
+            logText = `${divNum1} / ${divNum2} = ${result}`;
+            logId = 'divLog';
+            break;
+    }
+
+    appendLog(logId, logText);
+}
+
+function appendLog(logId, logText) {
+    const logElement = document.getElementById(logId);
+
+    // Xóa "Chưa thực hiện" nếu có
+    if (logElement.textContent === 'Chưa thực hiện') {
+        logElement.innerHTML = '';
+    }
+
+    // Tạo phần tử mới cho phép tính
+    const newEntry = document.createElement('p');
+    newEntry.textContent = logText;
+    newEntry.classList.add('active');
+
+    // Loại bỏ class 'active' khỏi các phép tính trước đó
+    logElement.querySelectorAll('p').forEach(entry => {
+        entry.classList.remove('active');
+    });
+
+    // Thêm phép tính mới lên đầu
+    logElement.insertBefore(newEntry, logElement.firstChild);
+}
+
+
+function resetResults() {
+    document.getElementById('addLog').innerHTML = 'Chưa thực hiện';
+    document.getElementById('subLog').innerHTML = 'Chưa thực hiện';
+    document.getElementById('mulLog').innerHTML = 'Chưa thực hiện';
+    document.getElementById('divLog').innerHTML = 'Chưa thực hiện';
+
+    document.getElementById('addResult').value = '';
+    document.getElementById('subResult').value = '';
+    document.getElementById('mulResult').value = '';
+    document.getElementById('divResult').value = '';
+
+    document.querySelectorAll('input[type="number"]').forEach(input => {
+        input.value = '';
+    });
+}
+</script>
+</html>
