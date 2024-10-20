@@ -1,68 +1,137 @@
-<style>
-    * {
-        font-family: sans-serif;
-        
-    }
-    .row {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-    }
-    .date {
-        width: 50px;
-    }
-    #diff {
-        height: 50px;
-    }
-</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box; /* Đảm bảo padding và border không ảnh hưởng đến kích thước tổng thể */
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4; /* Màu nền nhẹ nhàng */
+            padding: 20px; /* Thêm khoảng cách cho body */
+        }
+
+        div {
+            background-color: white; /* Màu nền cho form */
+            padding: 20px; /* Khoảng cách bên trong */
+            border-radius: 8px; /* Bo góc */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+            max-width: 500px; /* Giới hạn chiều rộng tối đa của form */
+            margin: auto; /* Giữa form trên trang */
+        }
+
+        h1 {
+            text-align: center; /* Căn giữa tiêu đề */
+            margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Căn giữa với khoảng cách */
+            margin-bottom: 15px; /* Khoảng cách giữa các hàng */
+        }
+
+        .date {
+            width: 60px; /* Điều chỉnh kích thước cho các input ngày tháng */
+            margin: 0 5px; /* Khoảng cách giữa các ô nhập */
+        }
+
+        #diff {
+            width: 100%; /* Chiều rộng đầy đủ cho ô nhập khác */
+        }
+
+        input[type="text"], input[type="checkbox"] {
+            padding: 8px; /* Khoảng cách bên trong cho input */
+            border: 1px solid #ccc; /* Đường viền nhẹ */
+            border-radius: 4px; /* Bo góc cho input */
+            width: calc(100% - 20px); /* Chiều rộng đầy đủ cho input */
+        }
+
+        button {
+            padding: 10px 15px; /* Khoảng cách cho nút */
+            border: none; /* Không viền */
+            border-radius: 4px; /* Bo góc cho nút */
+            background-color: #5cb85c; /* Màu nền cho nút */
+            color: white; /* Màu chữ cho nút */
+            cursor: pointer; /* Con trỏ khi di chuột */
+            margin-right: 10px; /* Khoảng cách giữa các nút */
+        }
+
+        button:hover {
+            background-color: #4cae4c; /* Màu nền khi di chuột qua nút */
+        }
+
+        #message, #message1, #message3 {
+            margin-top: 5px; /* Khoảng cách trên cho thông báo lỗi */
+        }
+    </style>
 </head>
 <body>
     <div>
-        <h1 class="row">FORM ĐĂNG KÝ</h1>
+        <h1>FORM ĐĂNG KÝ</h1>
         <div class="row"><p>Họ</p><input id="ho" type="text"></div>
         <p class="row" id="message" style="color:red;"></p>
-        <div class="row"><p>Tên</p> <input id="ten" type="text"></div>
+        <div class="row"><p>Tên</p><input id="ten" type="text"></div>
         <p class="row" id="message1" style="color:red;"></p>
-        <div class="row"><p>Ngày sinh: Ngày</p><input class="date" type="text">Tháng<input class="date" type="text"> Năm <input class="date" type="text"></div>
-        <div class="row"><p>Giới tính</p><input type="checkbox">Nam</i><input type="checkbox">Nữ</i></div>
+        <div class="row">
+            <p>Ngày sinh:</p>
+            <input class="date" type="text" placeholder="Ngày">
+            <input class="date" type="text" placeholder="Tháng">
+            <input class="date" type="text" placeholder="Năm">
+        </div>
+        <div class="row">
+            <p>Giới tính</p>
+            <input type="checkbox">Nam
+            <input type="checkbox">Nữ
+        </div>
         <div class="row"><p>Số điện thoại</p><input id="sdt" type="text"></div>
         <p class="row" id="message3" style="color:red;"></p>
-        <div class="row"><p>Sở thích: </p><input type="checkbox">Đọc sách</i><input type="checkbox">Xem phim</i> <input type="checkbox">Nghe nhạc <input type="checkbox">Đá bóng</div>
+        <div class="row">
+            <p>Sở thích:</p>
+            <input type="checkbox">Đọc sách
+            <input type="checkbox">Xem phim
+            <input type="checkbox">Nghe nhạc
+            <input type="checkbox">Đá bóng
+        </div>
         <div class="row"><p>Khác</p><input id="diff" type="text"></div>
-        <div class="row"><button type="button" onclick="checkInput()">Submit</button><button type="button" onclick="reset()">Reset</button></div>
-    
+        <div class="row">
+            <button type="button" onclick="checkInput()">Submit</button>
+            <button type="button" onclick="reset()">Reset</button>
+        </div>
     </div>
 
     <script>
         function checkInput() {
-          // Lấy giá trị từ input
-          var inputValue = document.getElementById("ho").value;
-          var inputValue1 = document.getElementById("ten").value;
-          var inputValue2 = document.getElementById("sdt").value;
-          // Kiểm tra nếu input trống
-          if (inputValue.trim() === "") {
-            document.getElementById("message").textContent = "Vui lòng nhập họ!";
-          } 
-          if (inputValue1.trim() === "") {
-            document.getElementById("message1").textContent = "Vui lòng nhập tên!";
-          } 
-          if  (isNaN(inputValue2) || inputValue2.trim() === "") {
-            document.getElementById("message3").textContent = "Vui lòng nhập số điện thoại!";
-          } 
+            // Lấy giá trị từ input
+            var inputValue = document.getElementById("ho").value;
+            var inputValue1 = document.getElementById("ten").value;
+            var inputValue2 = document.getElementById("sdt").value;
+            // Kiểm tra nếu input trống
+            if (inputValue.trim() === "") {
+                document.getElementById("message").textContent = "Vui lòng nhập họ!";
+            } 
+            if (inputValue1.trim() === "") {
+                document.getElementById("message1").textContent = "Vui lòng nhập tên!";
+            } 
+            if (isNaN(inputValue2) || inputValue2.trim() === "") {
+                document.getElementById("message3").textContent = "Vui lòng nhập số điện thoại!";
+            } 
         }
 
         function reset() {
             document.getElementById("message").textContent = "";
             document.getElementById("message1").textContent = "";
             document.getElementById("message3").textContent = "";
+            document.getElementById("ho").value = "";
+            document.getElementById("ten").value = "";
+            document.getElementById("sdt").value = "";
+            document.getElementById("diff").value = "";
         }
-      </script>
+    </script>
 </body>
 </html>
