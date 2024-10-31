@@ -125,12 +125,15 @@
     
     }
     .sidebar nav ul li a:hover{
-        color:#2e2e2e ;
+        color:#383737 ;
+        padding: 7px 10px 7px 2px;
+        background-color: #ececec;
+        border-radius: 5px;
     }
     
     #active {
         color: #ffffff;
-        background-color: #a80000;
+        background-color: #c93249;
         padding: 5px 40% 7px 10px;
         border-radius: 3px;
         font-weight: 700;
@@ -430,7 +433,7 @@
         <i style="color: #707070; margin-left: 20px; font-size: 14px;" class="fa-solid fa-comment">97</i>
       
         </div>
-        
+        <i class="fa-solid fa-comment"></i>
 
         <div class="content" style="width: 100%;" >
             <img style="margin: 20px 0px;" class="avatar" src="./imgcongdong/mem4.png" alt="">
@@ -510,6 +513,28 @@ document.getElementById('close-sidebar-btn').addEventListener('click', function(
     document.querySelector('.sidebar').classList.remove('show');
 });
     
+
+
+    // Đặt thời gian timeout (ms) - ví dụ 10 giây
+    const timeoutDuration = 20000;
+        let timeout;
+
+        // Hàm bắt đầu hoặc đặt lại timeout
+        function resetTimeout() {
+            clearTimeout(timeout); // Xóa timeout hiện tại nếu có
+            timeout = setTimeout(() => {
+                alert("Bạn đã không hoạt động trong một thời gian. Chuyển hướng...");
+                window.location.href = "https://nguyen15idhue.github.io/thietkeweb_btl/trangchu/index.html"; // Đổi URL theo ý muốn
+            }, timeoutDuration);
+        }
+
+        // Thêm sự kiện để theo dõi hành động của người dùng
+        window.onload = resetTimeout;
+        document.onmousemove = resetTimeout;
+        document.onkeypress = resetTimeout;
+        document.onscroll = resetTimeout;
+        document.onclick = resetTimeout;
+
     </script>
       
     
