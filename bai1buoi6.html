@@ -81,7 +81,26 @@
  0px -6px 12px #F90,
  0px -10px 20px #C33;
 }
+.back-to-home {
+    z-index: 999999;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
 
+
+  .back-to-home:hover {
+    background-color: #ebebeb;
+  }
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,6 +110,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="https://lemiduy.github.io/WebdesignLT/exercise.html" class="back-to-home" title="Về trang chủ">🏠</a>
     <div class="fire">Album Hot</div>
     <div class="album-container">
         <div class="album-item">
